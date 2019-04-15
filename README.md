@@ -22,3 +22,27 @@ pwsh
 ```
 
 Durch Eingabe von exit gefolgt von der Enter-Taste verlassen Sie die Powershell wieder.
+
+# Visual Studio Code unter Linux installieren
+Download: https://code.visualstudio.com/Download
+
+Installieren Sie das heruntergeladene DEB-Paket in einem Terminalfenster mit
+```
+sudo dpk -i code_1.33.1-1554971066_amd64.deb
+```
+
+# Profildatei
+Wo Ihre persönliche Profildatei liegen muss, erfahren Sie in der Powershell über 
+
+```
+$profile
+```
+Profildatei erstellen:
+```
+if (!(Test-Path -Path $profile )) { New-Item -Type File -Path $profile -Force }
+```
+Profildatei im Editor öffnen (Visual Studio Code):
+```
+code $profile
+```
+
