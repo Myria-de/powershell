@@ -26,7 +26,7 @@ else
     Get-NetIPAddress | Where-Object {$_.AddressFamily -eq 'IPv4'} | ForEach-Object IPAddress
 }
 
-# Loppback-Adresse entfernen
+# Loopback-Adresse entfernen
 Write-Output ("Aktuelle IP: " + ($IP | Where-Object {$_ -ne '127.0.0.1'}))
 $PublicIP=GetPublicIP
 Write-Output ("Öffentliche IP: " + $PublicIP)
