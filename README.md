@@ -62,11 +62,13 @@ cd ~/Dokumente/WindowsPowerShell
 ./Script.ps1
 ```
 
-E-Mails versenden: Powershell bringt die Funktion „Send-MailMessage“ (inzwischen veraltet) mit, über die Sie Emails an einen oder mehrere Empfänger versenden können, bei Bedarf auch mit Anhang. Unser Script „Send-Mail.ps1“ ist nützlich, wenn Sie regelmäßig E-Mails automatisiert an bestimmte Empfänger versenden müssen. Öffnen Sie das Skript in einem Editor und konfigurieren Sie den SMTP-Server (siehe Kommentare). In der Datei „empf.txt“ erwartet das Skript eine Liste mit E-Mail-Adressen (eine pro Zeile). Die Datei „SubjBody.txt“ muss in der ersten Zeile den Betreff und in den folgenden Zeilen den Nachrichtentext enthalten. Zum Start verwenden Sie die Batch-Datei „Send-Mails-to-list.bat“. Bei ersten Aufruf werden Sie nach dem SMTP-Passwort gefragt, das verschlüsselt in der Datei „secret.txt“ gespeichert wird.
+**E-Mails versenden:** Powershell bringt die Funktion „Send-MailMessage“ (inzwischen veraltet) mit, über die Sie Emails an einen oder mehrere Empfänger versenden können, bei Bedarf auch mit Anhang. Unser Script „Send-Mail.ps1“ ist nützlich, wenn Sie regelmäßig E-Mails automatisiert an bestimmte Empfänger versenden müssen. Öffnen Sie das Skript in einem Editor und konfigurieren Sie den SMTP-Server (siehe Kommentare). In der Datei „empf.txt“ erwartet das Skript eine Liste mit E-Mail-Adressen (eine pro Zeile). Die Datei „SubjBody.txt“ muss in der ersten Zeile den Betreff und in den folgenden Zeilen den Nachrichtentext enthalten. Zum Start verwenden Sie die Batch-Datei „Send-Mails-to-list.bat“. Bei ersten Aufruf werden Sie nach dem SMTP-Passwort gefragt, das verschlüsselt in der Datei „secret.txt“ gespeichert wird.
 
-Ordner in ZIP-Archive packen: Powershell bietet standardmäßig die Funktion „Compress-Archive“, die für einfache ZIP-Archive ausreicht. Ein Beispiel zeigt das Skript „ZipCompressFolder.ps1“. Sie rufen es mit
+**Ordner in ZIP-Archive packen:** Powershell bietet standardmäßig die Funktion „Compress-Archive“, die für einfache ZIP-Archive ausreicht. Ein Beispiel zeigt das Skript „ZipCompressFolder.ps1“. Sie rufen es mit
 ```
 ./ZIPCompressFolder.ps1 $home/Dokumente $home/Backup/
 ```
 auf, um ein Backup des Orderns „MeineBriefe“ in einer ZIP-Datei zu erstellen. Die ZIP-Datei landet im Ordner „Documents“ und trägt als Namen das aktuelle Datum sowie die Uhrzeit.
+
+**IP-Adressen ermitteln:*** Das Skript „GetIP.ps1“ zeigt Ihnen die IPv4-Adressen aller Netzwerkadapter und die öffentliche IP des Routers an. 
 
