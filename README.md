@@ -46,3 +46,27 @@ Profildatei im Editor öffnen (Visual Studio Code):
 code $profile
 ```
 
+## Beispiele
+In der Profildatei "/home/[User]/.config/powershell/Microsoft.PowerShell_profile.ps1":
+Die Funktion „FindBig“ sucht im angegeben Ordner und seinen Unterordnern mit „Get-ChildItem“ (Alias: gci) nach Dateien. Das Ergebnis wird absteigend nach der Größe sortiert, davon nimmt die Funktion die ersten zehn Dateien, rundet und formatiert die Größe in Megabyte und gibt das Resultat mit „Format-List“ als Liste aus.
+
+„LastTenFiles“ zeigt die neuesten zehn Datei an. Mit „Format-Table“ erfolgt die formatierte Ausgabe im Fenster der Powershell.
+
+„FolderSizes“ schließlich ermittelt Ordnergrößen, die Ausgabe wird in der Datei „ErgebnisDerZaehlung.txt“ gespeichert und automatisch mit Gedit geöffnet.
+Alle Funktionen erwarten einen Pfad als Parameter. Fehlt dieser, wird in „$home“ gesucht, dem Profilordner des aktuellen Benutzers.
+
+Die folgend Scripte müssen im Ordner "/home/[User]/Dokumente/WindowsPowerShell" liegen und aus diesem gestartet werden:
+
+```
+cd ~/Dokumente/WindowsPowerShell
+./Script.ps1
+```
+
+E-Mails versenden: Powershell bringt die Funktion „Send-MailMessage“ (inzwischen veraltet) mit, über die Sie Emails an einen oder mehrere Empfänger versenden können, bei Bedarf auch mit Anhang. Unser Script „Send-Mail.ps1“ ist nützlich, wenn Sie regelmäßig E-Mails automatisiert an bestimmte Empfänger versenden müssen. Öffnen Sie das Skript in einem Editor und konfigurieren Sie den SMTP-Server (siehe Kommentare). In der Datei „empf.txt“ erwartet das Skript eine Liste mit E-Mail-Adressen (eine pro Zeile). Die Datei „SubjBody.txt“ muss in der ersten Zeile den Betreff und in den folgenden Zeilen den Nachrichtentext enthalten. Zum Start verwenden Sie die Batch-Datei „Send-Mails-to-list.bat“. Bei ersten Aufruf werden Sie nach dem SMTP-Passwort gefragt, das verschlüsselt in der Datei „secret.txt“ gespeichert wird.
+
+Ordner in ZIP-Archive packen: Powershell bietet standardmäßig die Funktion „Compress-Archive“, die für einfache ZIP-Archive ausreicht. Ein Beispiel zeigt das Skript „ZipCompressFolder.ps1“. Sie rufen es mit
+```
+./ZIPCompressFolder.ps1 $home/Dokumente $home/Backup/
+```
+auf, um ein Backup des Orderns „MeineBriefe“ in einer ZIP-Datei zu erstellen. Die ZIP-Datei landet im Ordner „Documents“ und trägt als Namen das aktuelle Datum sowie die Uhrzeit.
+
